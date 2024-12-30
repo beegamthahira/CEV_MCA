@@ -1,0 +1,65 @@
+//function to calculate electricity bill
+function calculatebill($units)
+{
+//define tariff rules
+$rate1=5;
+$rate2=7;
+$rate3=10;
+//initialize total amount
+$bill amount=0;
+//calculate bill based on units consumed
+if($units<=100)
+{
+ $bill amount=$units*$rate1;
+ }
+else if($units<=200)
+ {
+ $bill amount=(100*rate1)+(($units-100)*$rate2); 
+ }
+ else
+ {
+  $bill amount=(100*$rate1)+(100*rate2)+(($units-200)*$rates);
+  }
+  return $bill amount;
+  }
+ //check if form is submitted
+ if($_SERVER["REQUEST_METHOD"]=="POST")
+ {
+ //get the units from user input $units=$_POST['units'];
+ //validate the input(ensure its a positive number)
+ if($units>=0)
+ {
+ //calculate the bill
+ $totalbill=calculatebill($units);
+ }
+ else
+ {
+ $error="please enter the valid number of units";
+ }
+ }
+ ?>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <title>Electrical bill generator</title>
+      </head>
+      <body>
+      <h2>Electric bill generator</h2>
+      <!--For to take user input-->
+      <form method="post"action=" ">
+      <label for="units">Enter units consumed:</label>
+      <input type="number"id="units"name="units"required min="0"/>
+      <button type="submit>calculate bill</button>
+      </form>
+      <?php if(isset($total bill)):?>
+      <h3>Bill details:</h3>
+      <p>units consumed:<?php echo $units:/></p>
+      <p>Total Bill:<?php echo number format($totalBill,2);
+      ?></p>
+      <?php elseif(isset($error)):?>
+      <p style="color:red;><?php echo $error;></p>
+      <?php endif;?>
+      </body>
+      </html>  

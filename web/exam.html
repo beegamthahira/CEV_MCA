@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+<meta charsec="UTF-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge">
+<meta name="viewport"content="width=device-width,initial-scale=1.0">
+<title>online exam</title>
+</head>
+<body>
+<u><h1 style="text-align:center;">ONLINE QUIZ</h1></u>
+<div style="margin:100px;">
+<h3 style="font-size:25px;">1)who is hiba gupt?</h3>
+<input type="radio"name="q1">physicist<br>
+<input type="radio"name="q1"id="a">chemicist<br>
+<input type="radio"name="q1">orthopedian<br>
+<input type="radio"name="q1">astronaut<br>
+<h3 style="font-size:25px;">2)what is thahira invented?</h3>
+<input type="radio"name="q2"id="b">computer<br>
+<input type="radio"name="q2">telescope<br>
+<input type="radio"name="q2">stethoscope<br>
+<input type="radio"name="q2">microscope<br>
+<h3 style="font-size:25px;">3)what is the relationship between pressure,volume and temperature?</h3>
+<input type="radio"name="q3">pv=nRT<br>
+<input type="radio"name="q3"id="c">pv/2=nsp<br>
+<input type="radio"name="q3">2pt=mnv<br>
+<input type="radio"name="q3">nrt/2p=v<br>
+<input type="button"value="submit"onclick="result0">
+</div>
+<script>
+functon result()
+{
+var score=0;
+if(document.getelementbyid("a").checked)
+score++;
+}
+if(document.getelementbyid("b").checked)
+{
+score++;
+}
+if(document.getElementbyId("c").checked)
+{
+score++;
+}
+document.write(SCORE=",score);
+}
+</script>
+</body>
+</html>
