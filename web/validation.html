@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Form Validation</title>
+</head>
+<body bgcolor="powderpink">
+<h1 align="center">FORM VALIDATION</h1>
+<center>
+<form name="form" action="" method="POST" onsubmit="return validate_form()">
+<table>
+<tr>
+    <td>NAME:</td>
+    <td><input type="text" name="name"></td>
+</tr>
+<tr>
+<td>ADDRESS:</td>
+<td><input type="text" name="address"></td>
+</tr>
+<tr>
+<td>EMAIL:</td>
+<td><input type="text" name="email"></td>
+</tr>
+<tr>
+<td>PHONE NO:</td>
+<td><input type="text" name="mobileno"></td>
+</tr>
+<tr>
+<td>USERNAME:</td>
+<td><input type="text" name="username"></td>
+</tr>
+<tr>
+<td>PASSWORD:</td>
+<td><input type="password" name="password"></td>
+</tr>
+<tr>
+<td><input type="reset" value="reset"></td>
+<td><input type="submit" value="submit"></td>
+</tr>
+</table>
+</form>
+</center>
+<script>
+function validate_form() {
+    var name = document.form.name.value;
+    var address = document.form.address.value;
+    var email = document.form.email.value;
+    var mobileNo = document.form.mobileno.value;  // Corrected the variable name
+    var username = document.form.username.value;
+    var password = document.form.password.value;
+    
+    var email_validate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var password_validate = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+?])[a-zA-Z\d!@#$%^&*+?]{8,}$/;
+
+    // Name validation
+    if (name == "") {
+        alert("Please enter your name");
+        document.form.name.focus();
+        return false;
+    }
+
+    // Address validation
+    if (address == "") {
+        alert("Please enter your address");
+        document.form.address.focus();
+        return false;
+    }
+
+    // Email validation
+    if (email == "") {
+        alert("Please enter your email");
+        document.form.email.focus();
+        return false;
+    } else if (!email_validate.test(email)) {
+        alert("Please enter a valid email");
+        return false;
+    }
+
+    // Mobile number validation
+    if (mobileNo == "") {
+        alert("Please enter your mobile number");
+        document.form.mobileno.focus();
+        return false;
+    } else if (isNaN(mobileNo)) {
+        alert("Please enter a valid number");
+        return false;
+    } else if (mobileNo.length != 10) {
+        alert("Please enter a 10-digit mobile number");
+        return false;
+    }
+
+    // Username validation
+    if (username == "") {
+        alert("Please enter your username");
+        document.form.username.focus();
+        return false;
+    }
+
+    // Password validation
+    if (password == "") {
+        alert("Please enter your password");
+        document.form.password.focus();
+        return false;
+    } else if (!password_validate.test(password)) {
+        alert("Password must be at least 8 characters long, include a lowercase letter, an uppercase letter, a digit, and a special character");
+        return false;
+    }
+
+    // If all validations pass
+    alert("Form submitted successfully");
+    return true;
+}
+</script>
+</body>
+</html>
+
